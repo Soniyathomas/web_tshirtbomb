@@ -1,10 +1,10 @@
 <?php 
 if(isset($_REQUEST['CId'])&&isset($_REQUEST['tId']))
 {
-	header("location:https://github.com/Soniyathomas/web_shirtgen/tarball/master/");
+	header("location:https://github.com/Soniyathomas/web_shirtgen/");
 }
 else
 {
-	header("location:https://github.com/wordpressmonk/web_retargetbomb/tarball/master/");
+	header("location:https://github.com/wordpressmonk/web_retargetbomb/");
 }
 ?>
