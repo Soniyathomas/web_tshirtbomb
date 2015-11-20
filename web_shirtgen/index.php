@@ -10,7 +10,7 @@ if(!empty($_REQUEST))
 $fc_params['id'] = $_REQUEST["CId"];
 $fc_params['meta_key'] = 'facebook_campaign';
 $fc_appMeta = campaign::getCampaignMetaValueByCampaignId($fc_params);
-$fcId = $fc_appMeta['meta_value'];
+echo $fcId = $fc_appMeta['meta_value'];exit;
 //facebook_campaign end
 $t_params['id'] = $fcId;
 $t_params['meta_key'] = 'app_token';

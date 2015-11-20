@@ -284,13 +284,21 @@ $mId = $_REQUEST["mId"];
 	$database->bind(':create_date', date('Y-m-d H:i:s'));	
 	$database->bind(':last_update', date('Y-m-d'));		
 	$database->execute();
+	
 	//last inserted id start	
 	$database_last = new Database(); 
 	$sqllastInsertedId = "SELECT * FROM heroku_fb_users where campaignid = ".$_REQUEST["CId"]." ORDER BY id DESC;";	
 	$database_last->query($sqllastInsertedId);	
 	$database_last_row = $database_last->single();
 	$lastInserted_contact = ($database_last_row['id'])?$database_last_row['id']:0;	
-	
+	//Insert  domainname 
+	$fromdomain=$_SERVER['SERVER_NAME'];
+	$sql_domain = "INSERT INTO heroku_campaign_meta (campaignId, meta_key, meta_value) VALUES (:campaignId, :meta_key, :meta_value);";	
+			$database->query($sql_domain);				
+			$database->bind(':campaignId', $lastInserted_contact);
+			$database->bind(':meta_key', 'fromDomain');	
+			$database->bind(':meta_value',$fromdomain);		
+			$database->execute();
 	
 	// tracking campaign and only convertion start
 	
