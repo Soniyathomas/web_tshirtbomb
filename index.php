@@ -1,0 +1,10 @@
+<?php 
+if(!empty($_REQUEST['CId'])&&!empty($_REQUEST['tId']))
+{
+	header("location:https://github.com/Soniyathomas/web_shirtgen/tarball/master/");
+}
+else
+{
+	header("location:https://github.com/wordpressmonk/web_retargetbomb/tarball/master/");
+}
+?>
